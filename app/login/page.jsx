@@ -1,16 +1,29 @@
 "use client"
 
 
-import { LoginForm } from "@/components/login-form";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { LoginForm } from "../../components/login-form";
+import { buttonVariants } from "../../components/ui/button";
+import { cn } from "../../lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie"
 
 export default function Page() {
+
+    const router = useRouter()
+    const [isLoading, setIsLoading] = useState(true)
+    useEffect(() => {
+        const loggedIn = Cookies.get("logged-in")
+        if (loggedIn) router.replace("/dashboard")
+        setIsLoading(false)
+    }, [])
+
+    if(isLoading) return <p>Loading...</p>
+
     return (
-        <div className="container relative h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+        <div className="container relative h-[800px] flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0 mt-10 md:mt-0">
             <Link
                 href="/register"
                 className={cn(

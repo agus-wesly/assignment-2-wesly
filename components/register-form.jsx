@@ -2,10 +2,10 @@
 
 import * as React from "react"
 
-import { cn, sleep } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+import { cn, sleep } from "../lib/utils"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
+import { Label } from "../components/ui/label"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -15,7 +15,7 @@ import {
     FormField,
     FormItem,
     FormMessage,
-} from "@/components/ui/form"
+} from "../components/ui/form"
 import Cookies from "js-cookie"
 import { useRouter } from "next/navigation"
 import { useToast } from "./hooks/use-toast"
